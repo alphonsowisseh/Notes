@@ -23,8 +23,10 @@ export class App extends Component {
       <Router>
       <div>
         <Navbar />
+        <div className="app-content">
         <Route exact path="/" component={(props) => <IndexPage {...props} notes={this.state.notes} />} />
         <Route exact path="/notes/:id" component={(props) => <ShowPage {...props} note={this.state.notes[props.match.params.id]} />} />
+        </div>
       </div>
       </Router>
     )
