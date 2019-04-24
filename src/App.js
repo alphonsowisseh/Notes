@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
+import IndexPage from './pages/index'
 
 export class App extends Component {
   state = {
