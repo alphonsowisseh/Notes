@@ -16,7 +16,7 @@ export class App extends Component {
   render() {
     return (
       <div>
-        
+        <IndexPage notes={this.state.notes} />
       </div>
     )
   }
