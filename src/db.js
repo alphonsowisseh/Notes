@@ -10,16 +10,9 @@ export default class DB{
         let notes = {};
 
         allNotes.rows.forEach(n => notes[n.id] = n.doc)
-        
+
         return notes
     }
-  render() {
-    return (
-      <div>
-        
-      </div>
-    )
-  }
 }
 
 
