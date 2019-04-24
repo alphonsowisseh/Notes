@@ -13,6 +13,15 @@ export default class DB{
 
         return notes
     }
+
+    async createNote(note){
+        note.createdAt = new Date()
+        note.updatedAt = new Date()
+
+        const res = await this.db.post({ ...note })
+
+        return res
+    }
 }
 
 
