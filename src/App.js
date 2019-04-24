@@ -13,14 +13,16 @@ import DB from './db'
 export class App extends Component {
   state = {
     db: new DB('react-notes'),
-    notes: {}
+    notes: {},
+    loading: true
     }
 
     async componentDidMount() {
       const notes = await this.state.db.getAllNotes();
 
       this.setState({
-        notes
+        notes,
+        loading: false
       })
     }
 
@@ -37,16 +39,25 @@ export class App extends Component {
       })
       return id
     }
+
+    renderContent(){
+      if(this.state.loading){
+        return <h2>Loading...</h2>
+      }
+    
+      return (
+      <div className="app-content">
+        <Route exact path="/" component={(props) => <IndexPage {...props} notes={this.state.notes} />} />
+        <Route exact path="/notes/:id" component={(props) => <ShowPage {...props} note={this.state.notes[props.match.params.id]} />} />
+        <Route exact path="/new" component={(props) => <NewPage {...props} onSave={this.handleSave} /> } />
+        </div>)
+    }
   render() {
     return (
       <Router>
       <div>
         <Navbar />
-        <div className="app-content">
-        <Route exact path="/" component={(props) => <IndexPage {...props} notes={this.state.notes} />} />
-        <Route exact path="/notes/:id" component={(props) => <ShowPage {...props} note={this.state.notes[props.match.params.id]} />} />
-        <Route exact path="/new" component={(props) => <NewPage {...props} onSave={this.handleSave} /> } />
-        </div>
+        { this.renderContent() }
       </div>
       </Router>
     )
