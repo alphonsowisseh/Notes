@@ -8,16 +8,12 @@ import IndexPage from './pages/index'
 import ShowPage from './pages/ShowPage'
 import NewPage from './pages/NewPage'
 
+import DB from './db'
+
 export class App extends Component {
   state = {
-    notes: {
-      1: {
-        _id: 1,
-        title: "Hello, World!",
-        body: "This is the body of my note",
-        updatedAt: new Date()
-        }
-      }
+    db: new DB(),
+    notes: {}
     }
 
     handleSave = (note) => {
