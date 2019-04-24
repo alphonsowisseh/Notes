@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {  BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css'
 import IndexPage from './pages/index'
 
@@ -15,9 +16,11 @@ export class App extends Component {
     }
   render() {
     return (
+      <Router>
       <div>
-        <IndexPage notes={this.state.notes} />
+        <Route exact path="/" component={(props) => <IndexPage {...props} notes={this.state.notes} />} />
       </div>
+      </Router>
     )
   }
 }
