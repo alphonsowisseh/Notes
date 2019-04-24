@@ -12,15 +12,20 @@ import DB from './db'
 
 export class App extends Component {
   state = {
-    db: new DB(),
+    db: new DB('react-notes'),
     notes: {}
     }
 
-    handleSave = (note) => {
-      const ids = Object.keys(this.state.notes)
-      const id = Math.max(...ids) + 1
+    async componentDidMount() {
+      const notes = await this.state.db.getAllNotes();
 
-      note['_id'] = id
+      this.setState({
+        notes
+      })
+    }
+
+    handleSave = async (note) => {
+      let { id } = await this.state.db.createNote(note)
 
       const { notes } = this.state
 
