@@ -25,7 +25,7 @@ class ShowPage extends React.PureComponent {
 
         return (
             <div>
-                <h1>{ note.title }</h1>
+                <h1 className="note-title">{ note.title }</h1>
                 <div className="note-created">
                     {this.renderDate()}
                     <Link className="note-edit" to={`/notes/${note._id}/edit`}>Edit</Link>

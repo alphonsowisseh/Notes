@@ -19,14 +19,14 @@ class IndexPage extends React.PureComponent {
         if (!notes.length) {
             return (
                 <div className="app-intro">
-                    <h2>Welcome to Notes</h2>
+                    <h2 className="mynotes">Welcome to Notes</h2>
                     <p>You don't have any notes. <Link className="btn" to="/new">Get started!</Link></p>
                 </div>
             );
         }
         return (
             <div>
-                <h2>Notes</h2>
+                <h2 className="mynotes">My Notes</h2>
                 <NoteList notes={this.state.notes}/>
             </div>
         )
