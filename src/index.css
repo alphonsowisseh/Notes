@@ -22,12 +22,12 @@ hr {
 }
 
 a {
-    color: #33f;
+    color: #0091ff;
     text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+  color: #004479;
 }
 
 .btn {
@@ -39,6 +39,7 @@ a:hover {
     text-decoration: none;
     color: #333;
     border: none;
+    float: right;
 }
 
 .btn:hover {
