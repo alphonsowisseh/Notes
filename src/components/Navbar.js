@@ -5,7 +5,7 @@ export class Navbar extends Component {
   render() {
     return (
       <nav className="navbar">
-      <Link to="/">React Notes</Link>
+      <Link to="/"><h1>Notes</h1></Link>
       <div className="navbar-buttons">
       <Link to="/new" className="btn">New Note</Link>
       </div>
